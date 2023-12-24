@@ -14,7 +14,16 @@ public static class Glyph
     public static readonly string Currency = "\u00A4";              // ¤
     public static readonly string Pipe = "\u00A6";                  // ¦
     public static readonly string Degree = "\u00B0";                // °
+    public static readonly string CapEth = "\u00D0";                // Ð
+    public static readonly string OCapDia = "\u00D6";               // Ö
+    public static readonly string UCapDia = "\u00DC";               // Ü
+    public static readonly string YCapDia = "\u009F";               // Ÿ
+    public static readonly string Cents = "\u00A2";                 // ¢
     public static readonly string Multiply = "\u00D7";              // ×
+    public static readonly string ILowDia = "\u00EF";               // ï
+    public static readonly string OLowDia = "\u00F6";               // ö
+    public static readonly string Thorn = "\u00FE";                 // þ
+    public static readonly string SCaron = "\u009A";                // š
 
 
     // Graphics Extended Code Page 1252 
@@ -54,7 +63,6 @@ public static class Glyph
 
     public static readonly string Smiley = "\u263A";                // ☺
     public static readonly string Circle = "\u25CB";                // ○
-
 
     public static readonly string Diamond = "\u2666";               // ♦
 

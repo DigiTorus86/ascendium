@@ -44,12 +44,13 @@ public static class NpcInteractions
         Prompts.Clear();
 
         Prompt bubba = new Prompt("Bubba", string.Empty);
-        bubba.Text = "Welcome to Ascendium!";
+        bubba.Title = "Welcome to Ascendium!";
         bubba.ResponseOptions.Add(new KeyValuePair<string, string>("ASCENDIUM", "Ascendium?"));
         bubba.ResponseOptions.Add(Goodbye);
         Prompts.Add(GetKey(bubba), bubba);
 
         Prompt bubba1 = new Prompt("Bubba", "ASCENDIUM");
+        bubba1.Title = "What is Ascendium?";
         bubba1.Text = "Ascendium is a classic text console fantasy RPG.";
         bubba1.ResponseOptions.Add(Goodbye);
         Prompts.Add(GetKey(bubba1), bubba1);

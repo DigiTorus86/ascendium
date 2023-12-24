@@ -83,24 +83,32 @@ public class Game
                     character.Draw();
                     result.Draw();
 
-                    if (result.ShowModally && result is InteractionResult interation)
+                    if (result.ShowModally && result is InteractionResult interaction)
                     {
                         _textFrame.AddTextLine(result.Messages.FirstOrDefault());
                         _textFrame.Draw();
 
-                        Prompt prompt = NpcInteractions.GetPrompt(interation.Target.Name);
-                        ModalSelectFrame msf = new ModalSelectFrame(10, 5, 30, 8, prompt.ResponseOptions);
-                        msf.Title = prompt.Text;
-                        msf.Draw();
-
-                        while(msf.SelectedValue != "EXIT")
-                        {
-                            prompt = NpcInteractions.GetPrompt(interation.Target.Name, msf.SelectedValue);
-                            msf = new ModalSelectFrame(10, 5, 30, 8, prompt.ResponseOptions);
-                            msf.Title = prompt.Text;
+                        bool done = false;
+                        Prompt prompt = NpcInteractions.GetPrompt(interaction.Target.Name);
+                        do
+                        {                            
+                            
+                            if (prompt.Text.Length > 0)
+                            {
+                                ModalTextFrame mtf = new ModalTextFrame(10, 5, 30, 20);
+                                mtf.Text = prompt.Text;
+                                mtf.Draw();
+                                DrawScreen();
+                            }
+                         
+                            ModalSelectFrame msf = new ModalSelectFrame(10, 5, 30, 8, prompt.ResponseOptions);
+                            msf.Title = $"To {interaction.Target.Name}:";
                             msf.Draw();
                             DrawScreen();
-                        }
+
+                            done = msf.SelectedValue == "EXIT";
+                            prompt = NpcInteractions.GetPrompt(interaction.Target.Name, msf.SelectedValue);
+                        } while (!done);
                     }
                     else if (result.ShowModally)
                     {

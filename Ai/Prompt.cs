@@ -7,6 +7,8 @@ public class Prompt
     public string NpcName { get; private set; }
     public string Key { get; private set; }
 
+    public string Title { get; set; } = string.Empty;
+
     public string Text { get;  set; } = string.Empty;
 
     public List<KeyValuePair<string, string>> ResponseOptions { get; set; } = new List<KeyValuePair<string, string>>();
